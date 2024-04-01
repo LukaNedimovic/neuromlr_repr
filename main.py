@@ -25,16 +25,9 @@ args = parse_args() # Parse arguments from cmd
 TRIPS_TO_EVALUATE = 100_000 
 MAX_ITERS         = 300
 BATCH             = args.batch_size
-PRINT_FREQ        = 1000            # log data into terminal every 1000 batches
-EVAL_FREQ         = 1               # args.eval_frequency # Go through validation set every ... epochs
+PRINT_FREQ        = 1000                # Log data into terminal every 1000 batches
+EVAL_FREQ         = args.eval_frequency # Go through validation set every ... epochs
 JUMP              = 10_000
-
-
-#if args.check_script:
-#    # Evaluate smaller dataset for the purposes of checking script's funcitonality 
-#    TRIPS_TO_EVALUATE = 10_000
-#    PRINT_FREQ = 50
-
     
 def save_model(model_path: str=MODEL_SAVE_PATH, aux_path: str=MODEL_SUPPORT_PATH):
     """
@@ -309,8 +302,6 @@ def evaluate(data,
     results : dict
         Self-explanatory: dictionary with relevant results.
     """
-    
-    # TODO -> Continue
     
     global nodes_coords, edge_id_to_uv, index0_edges_mapping 
     
@@ -742,19 +733,7 @@ if __name__ == "__main__":
     result_file.write("precision, recall, %age reach, avg_reach_all, avg_reach_specific, epochs_to_train, ")
     result_file.write("dijkstra_precision_reached, dijkstra_precision_all, ")
     result_file.write("dijkstra_recall_reached, dijkstra_recall_all\n")
-    
-    # TODO
-    # TODO
-    # TODO
-    # TODO
-    # TODO
-    # TODO
-    # TODO
-    # TODO
-    # TODO
-    # TODO
-    # TODO
-    
+
     result_file.write(f'{test_results["precision"]}, {test_results["recall"]}, {test_results["reachability"]}, {test_results["avg_reachability"][0]}, {test_results["avg_reachability"][1]}, {epoch + 1}, \
              {dijkstra_results["precision_reached"]}, {dijkstra_results["precision_all"]} {dijkstra_results["recall_reached"]} {dijkstra_results["recall_all"]}\n')
     
