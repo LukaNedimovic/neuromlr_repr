@@ -16,12 +16,6 @@ from sklearn.manifold import TSNE     # Dimensionality reduction
 
 import matplotlib.pyplot as plt       # Plotting
 
-
-if args.check_script:
-    DATA_THRESHOLD = 10
-else:
-    DATA_THRESHOLD = 200
-
 # Read data from files
 df_edges = gpd.read_file(EDGE_DATA)
 df_nodes = gpd.read_file(NODE_DATA)
