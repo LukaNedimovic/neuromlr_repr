@@ -31,8 +31,3 @@ class GNN(torch.nn.Module):
         self.activation = nn.ReLU()
   
         self.data = graph
-        
-            
-            
-        
-        
